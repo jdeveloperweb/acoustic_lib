@@ -789,8 +789,9 @@ class _Bellhop:
                                 'rx_depth': [rx_depth[k]],
                                 'rx_range': [rx_range[m]],
                                 'arrival_number': [n],
-                                # 'arrival_amplitude': [data[0]*_np.exp(1j * data[1]* _np.pi/180)],
-                                'arrival_amplitude': [data[0] * _np.exp( -1j * (_np.deg2rad(data[1]) + freq * 2 * _np.pi * (data[3] * 1j +  data[2])))],
+                                #'arrival_amplitude': [data[0]*_np.exp(1j * data[1]* _np.pi/180)],
+                                data = [float(val) for val in data]
+                                'arrival_amplitude': [data[0] * _np.exp(-1j * (_np.deg2rad(data[1]) + freq * 2 * _np.pi * (data[3] * 1j + data[2])))]
                                 'time_of_arrival': [data[2]],
                                 'complex_time_of_arrival': [data[2] + 1j*data[3]],
                                 'angle_of_departure': [data[4]],
